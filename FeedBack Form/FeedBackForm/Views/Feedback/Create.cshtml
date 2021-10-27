@@ -1,0 +1,130 @@
+﻿@model DataAccessLayer.Model.Feedback
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<h1>Enter Your Feedback for Today's Session'</h1>
+
+
+<hr />
+<div class="row">
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#rateMe4').mdbRate();
+        });
+    </script>
+
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+            <label asp-for="SessionId" class="control-label"></label>
+            <select asp-for="SessionId" class ="form-control" asp-items="ViewBag.SessionId"></select>
+        </div>*@
+
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Enter Your Name :</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Enter Your Email :</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MobileNumber" class="control-label">Enter Your Mobile Number :</label>
+                <input asp-for="MobileNumber" class="form-control" />
+                <span asp-validation-for="MobileNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comment" class="control-label">Comments :</label>
+                <input asp-for="Comment" class="form-control" />
+                <span asp-validation-for="Comment" class="text-danger"></span>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsInformative" /> @Html.DisplayNameFor(model => model.IsInformative)
+                </label>
+            </div>
+
+
+            @*<div class="form-group form-check">
+            <input class="form-check-input" asp-for="IsInformative" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+            @Html.DisplayNameFor(model => model.IsInformative)
+            <label class="form-check-label" for="flexRadioDefault2">
+                Yes
+            </label>
+            <label class="form-check-label" for="flexRadioDefault1">
+                No
+            </label>
+        </div>*@
+
+
+
+
+            <div class="form-group">
+                <label asp-for="SpeakerRating" for="customRange2" class="form-label">Speaker Rating (1-10) :</label>
+                <input asp-for="SpeakerRating" type="range" class="form-range" min="0" max="10" id="customRange2">
+                <span asp-validation-for="SpeakerRating" class="text-danger"></span>
+
+            </div>
+
+
+
+            @*<div class="form-group">
+            <label asp-for="SpeakerRating" class="control-label"></label>
+            <input asp-for="SpeakerRating" class="form-control" />
+            <span asp-validation-for="SpeakerRating" class="text-danger"></span>
+        </div>*@
+
+
+
+
+            @*<div class="form-group">
+            <label asp-for="OverrallRating" class="control-label">Overall Rating :</label>
+            <input asp-for="OverrallRating" class="form-control" />
+            <span asp-validation-for="OverrallRating" class="text-danger"></span>
+        </div>*@
+
+
+            <div class="form-group">
+                <label asp-for="OverrallRating" for="customRange2" class="form-label">Overall Rating (1-5) :</label>
+                <input asp-for="OverrallRating" type="range" class="form-range" min="0" max="5" id="customRange2">
+                <span asp-validation-for="OverrallRating" class="text-danger"></span>
+
+            </div>
+
+
+            @*<div class="form-group container">
+
+            <span asp-validation-for="OverrallRating" id="rateMe4" class="feedback"></span>
+        </div>*@
+
+
+            <div class="container">
+                <span id="rateMe2" class="empty-stars"></span>
+            </div>
+
+            <!-- rating.js file -->
+            <script src="js/addons/rating.js"></script>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

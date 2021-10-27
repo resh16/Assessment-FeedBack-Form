@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DataAccessLayer.Model.Session>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Today's Sessions</h1>
+
+<p>
+    <a asp-action="Create2">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SessionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+               Conducted By
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Speaker)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SessionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConductorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpeakerId)
+            </td>
+            <td>
+                
+                <a asp-controller="Feedback" asp-action="Create" asp-route-id="@item.Id">FeedBack</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
